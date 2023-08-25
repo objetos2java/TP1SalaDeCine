@@ -32,17 +32,17 @@ public class SalaDeCine {
         return butacas[fila][butaca];
     }
 	
-	public void ocuparButaca(int fila, int asiento) {
-        if (!this.butacaOcupada(fila, asiento)) {
-            butacas[fila][asiento] = true;
+	public void ocuparButaca(int fila, int butaca) {
+        if (!this.butacaOcupada(fila, butaca)) {
+            butacas[fila][butaca] = true;
         }        
     }
 	
 	public Integer totalButacasOcupadas() {
         int total = 0;
         for (int fila = 0; fila < filas; fila++) {
-            for (int asiento = 0; asiento < butacasPFila; asiento++) {
-                if (butacas[fila][asiento]) {
+            for (int butaca = 0; butaca < butacasPFila; butaca++) {
+                if (butacas[fila][butaca]) {
                     total++;
                 }
             }
@@ -50,7 +50,7 @@ public class SalaDeCine {
         return total;
     }
 	
-	public boolean hayEspacioPara(int cantidadDePersonas) {
+	public Boolean hayEspacioPara(int cantidadDePersonas) {
 		if (cantidadDePersonas <= butacasPFila) {
 			for (int fila = 0; fila < filas; fila++) {
 	            int butacasLibres = 0;
@@ -68,4 +68,7 @@ public class SalaDeCine {
 		}
         return false;
     }
+	public Integer butacasTotales() {
+		return filas * butacasPFila;
+	}
 }
